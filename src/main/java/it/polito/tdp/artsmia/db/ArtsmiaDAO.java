@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import it.polito.tdp.artsmia.model.Adiacenza;
 import it.polito.tdp.artsmia.model.ArtObject;
 import it.polito.tdp.artsmia.model.Artist;
 import it.polito.tdp.artsmia.model.Exhibition;

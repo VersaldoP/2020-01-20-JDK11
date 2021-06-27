@@ -42,13 +42,22 @@ public class ArtsmiaController {
     @FXML
     void doArtistiConnessi(ActionEvent event) {
     	txtResult.clear();
-    	txtResult.appendText("Calcola artisti connessi");
+    	txtResult.appendText("Calcola artisti connessi \n");
+    	txtResult.appendText(this.model.artistiConnessi());
     }
 
     @FXML
     void doCalcolaPercorso(ActionEvent event) {
     	txtResult.clear();
     	txtResult.appendText("Calcola percorso");
+    	String id_string = txtArtista.getText();
+    	try {
+    		int id = Integer.parseInt(id_string);
+    		txtResult.appendText(this.model.cerca(id));
+    	}
+    	catch(NumberFormatException e) {
+    		txtResult.appendText("\nErrrore inserire un id numero \n");
+    	}
     }
 
     @FXML
@@ -57,8 +66,9 @@ public class ArtsmiaController {
     	String r = boxRuolo.getValue();
     	if(r!=null) {
     		this.model.creaGrafo(r);
-    	txtResult.appendText("Creato grafo \n  #vertici "+this.model.getNvertici());
+    	txtResult.appendText("Creato grafo \n  #vertici "+this.model.getNvertici()+"\n  #archi "+this.model.getNarchi());
     	}
+    	else
     	txtResult.appendText("Devi selezionare un role prima ");
     	
     }
